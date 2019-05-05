@@ -37,7 +37,7 @@ SIRdem = function(t,state,parameters){
 ## READ THE CODE AND COMPARE THE DIFFERENCES
 ## RUN BOTH WITH THE FOLLOWING 
 ## INITIAL CONDITIONS/PARAMETERS
-N = 1e5; I0 = 20; S0 = 0.2*N;
+N = 90000; I0 = 500; S0 = 0.2*N;
 state = c(S = S0, I = I0);
 # parameters
 beta = 520/365; gamma = 1/7; mu = 1/(70*365);
@@ -156,10 +156,10 @@ SEIR=function(t,state,parameters){
 }
 
 ## NOW TEST YOUR MODELS USING THE FOLLOWING PARMS/INI CONDS:
-times=0:100
-N=1e5; E0=10; I0=0; S0=N-E0-I0;
+times=0:1000
+N=90000; E0=500; I0=0; S0=N-E0-I0;
 stateSEIR=c(S=S0,E=E0,I=I0, cumInci=0);
-paramSEIR=c(beta=.6,alpha=1/1.5,gamma=1/3); 
+paramSEIR=c(beta=1.4,alpha=1/4.3,gamma=1/2.5); 
 simSEIR=ode(y=stateSEIR,times=times,func=SEIR,parms=paramSEIR) # run SEIR
 
 stateSIR=c(S=S0,I=E0, cumInci=E0);
